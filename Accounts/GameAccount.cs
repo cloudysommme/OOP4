@@ -51,7 +51,7 @@ namespace OOP2.Accounts
             GameRating(false, game.Rating);
             gameHistory.Add(game.GameId);
         }
-
+        public string AccountType { get; set; }
 
 
     }

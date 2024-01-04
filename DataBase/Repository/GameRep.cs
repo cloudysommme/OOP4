@@ -82,22 +82,28 @@ namespace OOP2.DataBase.Repository
             Console.WriteLine("--------------------------------------------------------------------------");
         }
 
-        public void PrintGames(GameAccount gameAccount)
-        {
-            Console.WriteLine($"\nGames history of {gameAccount.UserName}");
-            Console.WriteLine($"(Current rating: {gameAccount.CurrentRating})");
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine("| Player 1\t| Player 2\t| Result\t| Rating\t|");
-            Console.WriteLine("--------------------------------------------------------------------------");
+       public void PrintGames(GameAccount gameAccount)
+{
+    Console.WriteLine($"\nGames history of {gameAccount.UserName}");
+    Console.WriteLine($"(Current rating: {gameAccount.CurrentRating})");
+    Console.WriteLine("--------------------------------------------------------------------------");
+    Console.WriteLine("| Player 1\t| Player 2\t| Result\t| Rating\t|");
+    Console.WriteLine("--------------------------------------------------------------------------");
 
-            foreach (int i in gameAccount.gameHistory)
-            {
-                var game = GetGameById(i);
+    foreach (int i in gameAccount.gameHistory)
+    {
+        var game = GetGameById(i);
 
-                Console.WriteLine($"| {game.Name,-14}| {game.OpponentName,-14}| {(game.Outcome ? "Win" : "Lose"),-14}| {game.Rating,-14}|");
-            }
+                string result = (game.Outcome && game.Name == gameAccount.UserName) ||
+                                           (!game.Outcome && game.OpponentName == gameAccount.UserName)
+                                               ? "Win"
+                                               : "Lose";
 
-            Console.WriteLine("--------------------------------------------------------------------------");
-        }
+                Console.WriteLine($"| {game.Name,-14}| {game.OpponentName,-14}| {result,-14}| {game.Rating,-14}|");
+    }
+
+    Console.WriteLine("--------------------------------------------------------------------------");
+}
+
     }
 }

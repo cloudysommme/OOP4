@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Accounts",
     "\\DataBase",
     "\\DataBase\\Repository",
     "\\DataBase\\Service",
-    "\\Games"
+    "\\Games",
+    "\\Terminal"
   ],
-  "SelectedNode": "\\OOP2.sln",
+  "SelectedNode": "\\DataBase\\Service\\GameServ.cs",
   "PreviewInSolutionExplorer": false
 }
